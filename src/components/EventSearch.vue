@@ -9,11 +9,13 @@
 <script>
 export default {
   name: 'EventSearch',
-  data: () => ({})
 }
 </script>
 
 <style lang="scss" scoped>
 .EventSearch {
+  height: 3em;
+
+  font-size: 14pt;
 }
 </style>
