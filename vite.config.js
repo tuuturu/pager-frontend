@@ -6,7 +6,7 @@ import vue from '@vitejs/plugin-vue'
  */
 export default {
   server: {
-    port: 8080,
+    port: 8081,
     strictPort: true,
   },
 
