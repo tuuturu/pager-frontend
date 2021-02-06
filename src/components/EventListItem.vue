@@ -1,6 +1,6 @@
 <template>
   <li class="EventListItem">
-    <img alt="" src="https://via.placeholder.com/150" />
+    <img alt="" :src="DefaultIcon" />
 
     <div class="content-wrapper">
       <div class="header">
@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import DefaultIcon from '/src/assets/bell.svg'
+
 export default {
   name: 'EventListItem',
   props: {
@@ -29,7 +31,9 @@ export default {
       required: true,
     }
   },
-  data: () => ({}),
+  data: () => ({
+    DefaultIcon
+  }),
   methods: {
     fromNanos(nanos) {
       const millis = Math.round(nanos / 1000000)
@@ -63,8 +67,6 @@ const DAY = HOUR * 24
 
   display: flex;
   align-items: center;
-
-  border: 1px solid black;
 }
 
 .content-wrapper {
