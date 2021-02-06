@@ -5,7 +5,7 @@
     <div class="content-wrapper">
       <div class="header">
         <h1>{{ title }}</h1>
-        <span class="timestamp">{{ fromMillis(timestamp) }}</span>
+        <span class="timestamp">{{ fromNanos(timestamp) }}</span>
       </div>
       <p>{{ description }}</p>
     </div>
@@ -31,8 +31,14 @@ export default {
   },
   data: () => ({}),
   methods: {
+    fromNanos(nanos) {
+      const millis = Math.round(nanos / 1000000)
+
+      return this.fromMillis(millis)
+    },
     fromMillis(millis) {
       const now = Date.now()
+
       const diff = now - millis
 
       if (diff < HOUR)

@@ -5,7 +5,7 @@
         :key="event.title"
         :title="event.title"
         :description="event.description"
-        :timestamp="event.timestamp"
+        :timestamp="parseInt(event.timestamp)"
     />
   </ul>
 </template>
