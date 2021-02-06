@@ -18,7 +18,7 @@ export default {
       return this.events.filter(event => {
         const haystack = event.title + event.description
 
-        return haystack.includes(this.filter)
+        return haystack.toLowerCase().includes(this.filter.toLowerCase())
       })
     },
   },
@@ -32,9 +32,6 @@ export default {
 </script>
 
 <style scoped>
-.Events {
-}
-
 .EventSearch {
   margin-top: 1em;
 
