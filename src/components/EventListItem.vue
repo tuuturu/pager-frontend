@@ -60,13 +60,19 @@ const HOUR = 1000 * 60 * 60
 const DAY = HOUR * 24
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "src/assets/theme";
+
 .EventListItem {
   margin: 0;
   padding: 1em;
 
   display: flex;
   align-items: center;
+}
+
+.EventListItem :hover {
+  background: $backgroundAccent;
 }
 
 .content-wrapper {
@@ -108,7 +114,7 @@ p {
 }
 
 img {
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
 }
 </style>
