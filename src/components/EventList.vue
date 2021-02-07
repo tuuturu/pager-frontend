@@ -7,6 +7,7 @@
         :title="event.title"
         :description="event.description"
         :timestamp="parseInt(event.timestamp)"
+        :read-more-u-r-l="event.readMoreURL"
     />
   </ul>
 </template>

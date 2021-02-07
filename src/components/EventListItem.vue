@@ -1,5 +1,5 @@
 <template>
-  <li class="EventListItem" @mouseover="hover = true" @mouseout="hover = false">
+  <li class="EventListItem" @mouseover="hover = true" @mouseout="hover = false" @click="open">
     <img alt="" :src="DefaultIcon" />
 
     <div class="content-wrapper">
@@ -40,7 +40,10 @@ export default {
     timestamp: {
       type: Number,
       required: true,
-    }
+    },
+    readMoreURL: {
+      type: String,
+    },
   },
   computed: {
     sanitizedTimestamp() {
@@ -53,10 +56,17 @@ export default {
     hover: false,
   }),
   methods: {
+    open() {
+      if (!this.readMoreURL) return
+
+      const win = window.open(this.readMoreURL, '_blank')
+
+      win.focus()
+    },
     markAsRead() {
       this.$store.dispatch('events/markAsRead', this.id)
     }
-  }
+  },
 }
 
 const HOUR = 1000 * 60 * 60
