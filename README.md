@@ -109,7 +109,7 @@ To get a local copy up and running follow these simple steps.
   ```sh
   npm install npm@latest -g
   ```
-* For local development, the [dev-env](https://github.com/tuuturu/) is required
+* For local development, the [developer environment](https://github.com/tuuturu/pager-local-developer-environment) is required
 
 ### Installation
 
