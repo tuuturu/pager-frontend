@@ -29,6 +29,18 @@ const actions = {
     const encodedRedirect = encodeURIComponent(redirectTo)
     
     window.location.href = `${config.VITE_GATEKEEPER_URL}/login?redirect=${encodedRedirect}`
+  },
+  async logout({ commit }) {
+    try {
+      await axios.request({
+        url: 'logout',
+        method: 'POST',
+      })
+      
+      commit('userInfo', null)
+    } catch (error) {
+      console.error(error)
+    }
   }
 }
 

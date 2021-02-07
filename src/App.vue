@@ -1,10 +1,20 @@
 <template>
   <router-view></router-view>
+
+  <div class="footer">
+    <button @click="logout">logout</button>
+  </div>
 </template>
 
 <script>
 export default {
-  components: {}
+  methods: {
+    async logout() {
+      await this.$store.dispatch('auth/logout')
+
+      await this.$router.push('/')
+    }
+  }
 }
 </script>
 
@@ -34,5 +44,36 @@ body {
   height: 100%;
 
   background: $background;
+}
+
+.footer {
+  position: absolute;
+  bottom: 1em;
+
+  padding: 0 1em;
+
+  display: flex;
+  justify-content: flex-end;
+
+  width: 100%;
+}
+
+button {
+  border: 0;
+  background: transparent;
+
+  text-decoration: $primaryTextColor underline;
+  font-size: 12pt;
+
+  padding: 1em;
+
+  cursor: pointer;
+}
+
+button:hover {
+  background: $primaryColor;
+  color: $primaryTextColor;
+
+  text-decoration: $primaryAccent underline;
 }
 </style>
