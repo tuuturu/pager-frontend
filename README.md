@@ -38,7 +38,8 @@
   <h3 align="center">Pager Frontend</h3>
 
   <p align="center">
-    Frontend client for the [Pager project](https://github.com/tuuturu?q=pager&type=&language=)
+    Frontend client for the
+    <a href="https://github.com/tuuturu?q=pager&type=&language=">Pager project</a>
     <br />
     <a href="https://github.com/tuuturu/pager-frontend"><strong>Explore the docs »</strong></a>
     <br />
