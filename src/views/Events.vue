@@ -16,6 +16,8 @@ export default {
     ...mapState('events', ['events']),
     filteredEvents() {
       return this.events.filter(event => {
+        if (!this.showRead && event.read) return false
+
         const haystack = event.title + event.description
 
         return haystack.toLowerCase().includes(this.filter.toLowerCase())
@@ -24,6 +26,7 @@ export default {
   },
   data: () => ({
     filter: '',
+    showRead: false,
   }),
   created() {
     this.$store.dispatch('events/refresh')

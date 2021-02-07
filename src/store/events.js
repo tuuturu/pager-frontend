@@ -23,12 +23,32 @@ const actions = {
     } catch (error) {
       console.error(error)
     }
-  }
+  },
+  async markAsRead({ commit }, id) {
+    try {
+      await axios.request({
+        url: `/events/${id}`,
+        method: 'PATCH',
+        data: {
+          read: true,
+        },
+      })
+
+      commit('markAsRead', id)
+    } catch (error) {
+      console.error(error)
+    }
+  },
 }
 
 const mutations = {
   events(state, events) {
     state.events = events
+  },
+  markAsRead(state, id) {
+    const results = state.events.filter(event => event.id === id)
+    
+    results[0].read = true
   }
 }
 

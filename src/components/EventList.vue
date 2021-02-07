@@ -2,6 +2,7 @@
   <ul class="EventList">
     <EventListItem
         v-for="event in events"
+        :id="event.id"
         :key="event.title"
         :title="event.title"
         :description="event.description"

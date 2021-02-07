@@ -8,7 +8,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import 'src/assets/theme';
+
 * {
   box-sizing: border-box;
 }
@@ -30,5 +32,7 @@ body {
   margin: 0;
 
   height: 100%;
+
+  background: $background;
 }
 </style>
