@@ -35,10 +35,12 @@ export default {
     showRead: false,
   }),
   created() {
-    this.$store.dispatch('events/refresh')
+    this.$store.dispatch('events/fetchUnread')
   },
   methods: {
     toggleRead(e) {
+      if (e.target.checked) this.$store.dispatch('events/fetchAll')
+
       this.showRead = e.target.checked
     }
   },

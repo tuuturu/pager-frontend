@@ -12,10 +12,20 @@ const state = () => ({
 })
 
 const actions = {
-  async refresh({ commit }) {
+  async fetchAll({ dispatch }) {
+    await dispatch('refresh')
+  },
+  async fetchUnread({ dispatch }) {
+    await dispatch('refresh', { filter: 'read=false' })
+  },
+  async refresh({ commit }, opts) {
+    let url = "/events"
+    
+    if (opts && opts.filter) url += `?${opts.filter}`
+    
     try {
       const { data } = await axios.request({
-        url: '/events',
+        url,
         method: 'GET'
       })
 
