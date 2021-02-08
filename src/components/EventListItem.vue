@@ -1,6 +1,6 @@
 <template>
   <li class="EventListItem" @mouseover="hover = true" @mouseout="hover = false" @click="open">
-    <img alt="" :src="DefaultIcon" />
+    <img alt="" :src="getIcon" />
 
     <div class="content-wrapper">
       <div class="event-data">
@@ -44,11 +44,19 @@ export default {
     readMoreURL: {
       type: String,
     },
+    imageURL: {
+      type: String
+    },
   },
   computed: {
     sanitizedTimestamp() {
       return fromNanos(this.timestamp)
-    }
+    },
+    getIcon() {
+      if (this.imageURL) return this.imageURL
+
+      return this.DefaultIcon
+    },
   },
   data: () => ({
     DefaultIcon,

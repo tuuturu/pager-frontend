@@ -8,6 +8,7 @@
         :description="event.description"
         :timestamp="parseInt(event.timestamp)"
         :read-more-u-r-l="event.readMoreURL"
+        :image-u-r-l="event.imageURL"
     />
   </ul>
 </template>
